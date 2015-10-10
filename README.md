@@ -46,7 +46,7 @@ and the video is missing...
 
 # Used packages:
 - meteor-base            
--mobile-experience      
+- mobile-experience      
 - mongo                   
 - blaze-html-templates   
 - session                 
