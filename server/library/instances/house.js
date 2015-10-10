@@ -1,5 +1,5 @@
 Instance.library.house = {
-    count: 30, //the number of times this object is in the array of which an instance is chosen => the higher this number, the higher the chance.
+    count: 20, //the number of times this object is in the array of which an instance is chosen => the higher this number, the higher the chance.
     build: function (story, player) {
         var scene = story.addScene();
         var door = scene.addText(`

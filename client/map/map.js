@@ -27,9 +27,12 @@ Template.map.events({
     'click .bigger': function () {
         Session.set('resolution', Session.get('resolution') + 10);
     }, 'click .smaller': function () {
-        if (Session.get('resolution') >= 10) {
+        if (Session.get('resolution') > 10) {
             Session.set('resolution', Session.get('resolution') - 10);
         }
+    },
+    'click .reset': function(){
+        Session.set('resolution', 20);
     }
 });
 
@@ -40,18 +43,21 @@ Tracker.autorun(function () {
     }
     var resolution = Session.get('resolution');
     var doc = Spielebuch.Players.findOne({userId: Meteor.userId()});
-    ctx.clearRect(0,0,c.width, c.height);
-    ctx.translate(doc.x*resolution,doc.x*resolution + c.height *0.5);
-    _.forEach(doc.path, (item)=> {
-        var position = idToPosition(item);
-        ctx.fillStyle = getBiomeWithSeed(position.x, position.y).color;
-        ctx.fillRect(position.x * resolution, position.y * resolution, resolution, resolution);
-    });
-    ctx.fillStyle = '#9D0422';
-    ctx.beginPath();
-    ctx.arc(doc.x * resolution + 0.5 * resolution, doc.y * resolution + 0.5 * resolution, 4, 0, 2 * Math.PI);
-    ctx.stroke();
+    if(doc) {
+        ctx.save();
+        ctx.clearRect(0, 0, c.width, c.height);
+        ctx.restore();
+        var offsetX = -doc.x * resolution + c.width*0.5;
+        var offsetY = -doc.y * resolution + c.height*0.5;
 
-    ctx.translate(0,0);
-    //-doc.y - c.height * 0.5 -doc.y - c.height * 0.5
+        _.forEach(doc.path, (item)=> {
+            var position = idToPosition(item);
+            ctx.fillStyle = getBiomeWithSeed(position.x, position.y).color;
+            ctx.fillRect(position.x * resolution + offsetX, position.y * resolution + offsetY, resolution, resolution);
+        });
+        ctx.fillStyle = '#9D0422';
+        ctx.beginPath();
+        ctx.arc(doc.x * resolution + 0.5 * resolution + offsetX, doc.y * resolution + 0.5 * resolution + offsetY, 4, 0, 2 * Math.PI);
+        ctx.stroke();
+    }
 });
