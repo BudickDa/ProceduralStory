@@ -9,6 +9,7 @@
         {{>loginButtons}}
         <ul class="nav navbar-nav navbar-right">
             <li><a href="#">{{readerPlayerName}}</a></li>
+            <li><a class="open-map" href="#">Map</a></li>
             <li><a class="restart-story" href="#">Restart</a></li>
             <li><a href="https://github.com/spielebuch/example-en" target="_blank">GitHub</a></li>
         </ul>
@@ -25,6 +26,10 @@
                 <p>Phone: +49 (0)911 - 980 328 49 / Email: spielebuch@budick.eu</p>
             </div>
             <div class="col-md-6">
+
+                <p>This is an example application that was created during the 2015 Meteor Global Distributed Hackathon in Nuremburg, Germany.</p>
+                <p>You can find the code <a href="https://github.com/BudickDa/ProceduralStory" target="_blank">here</a></p>
+
                 <!--
                     This should be in every app on a prominent place to be conform with the Affero GPL.
                     Spielebuch is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License.
@@ -47,6 +52,7 @@
                     {{>readerText}}
                     {{>readerInteraction}}
                     {{>readerCountdown}}
+                    {{>map}}
                     <hr/>
                 </div>
                 <div class="col-md-12">
