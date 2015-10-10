@@ -1,0 +1,71 @@
+<head>
+    <title>This is a procedurally generated story - You will get lost in it!</title>
+</head>
+
+
+<body>
+<div class="container">
+    <div id="navbar" class="navbar-collapse collapse">
+        {{>loginButtons}}
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">{{readerPlayerName}}</a></li>
+            <li><a class="restart-story" href="#">Restart</a></li>
+            <li><a href="https://github.com/spielebuch/example-en" target="_blank">GitHub</a></li>
+        </ul>
+    </div>
+</div>
+{{>story}}
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 text-small">
+                <!-- If you use this app delete this or replace it with your own data. -->
+                <h4>Impressum (german law demands it):</h4>
+                <address><strong>Daniel Budick, B.Eng.</strong><br>Speyerer Straße 1<br>90443 Nuremburg</address>
+                <p>Phone: +49 (0)911 - 980 328 49 / Email: spielebuch@budick.eu</p>
+            </div>
+            <div class="col-md-6">
+                <!--
+                    This should be in every app on a prominent place to be conform with the Affero GPL.
+                    Spielebuch is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License.
+                    But please repect the license at all time.
+                    Thx ;)
+                 -->
+                {{{readerCopyrightNotice}}}
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+
+
+<template name="story">
+    <div class="container main">
+        <div class="row">
+            {{#if currentUser}}
+                <div class="col-md-12">
+                    {{{text}}}
+                    {{>readerInteraction}}
+                    <div class="reader-backpack-btn">{{>readerBackpack}}</div>
+                    {{> modal}}
+                    <hr/>
+                </div>
+                <div class="col-md-12">
+                    Damage: {{readerPlayerDamage}} {{#if readerPlayerEquippedDamage}}{{readerPlayerEquippedDamage}}{{/if}}
+                    |
+                    Hitpoints: {{readerPlayerHitpoints}} {{#if readerPlayerEquippedHitpoints}}{{readerPlayerEquippedHitpoints}}{{/if}}
+                    |
+                    Armor: {{readerPlayerDefense}} {{#if readerPlayerEquippedDefense}}{{readerPlayerEquippedDefense}}{{/if}}
+                    <hr/>
+                </div>
+                <div class="col-md-12">
+                    {{>readerLog}}
+                </div>
+            {{else}}
+                <div class="col-md-12">
+                    <p>To use this application please sign-up/sign-in.</p>
+                </div>
+            {{/if}}
+        </div>
+    </div>
+</template>
