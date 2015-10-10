@@ -1,2 +1,2 @@
 # ProceduralStory
-A procedural story created with spielebuch:core.
+A procedurally generated story created with spielebuch:core.
