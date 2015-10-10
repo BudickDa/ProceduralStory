@@ -44,10 +44,9 @@
         <div class="row">
             {{#if currentUser}}
                 <div class="col-md-12">
-                    {{{text}}}
+                    {{>readerText}}
                     {{>readerInteraction}}
-                    <div class="reader-backpack-btn">{{>readerBackpack}}</div>
-                    {{> modal}}
+                    {{>readerCountdown}}
                     <hr/>
                 </div>
                 <div class="col-md-12">

@@ -25,6 +25,7 @@ generate = function (storyId) {
                 console.error(500, err);
             }
             Text.set(text);
+            console.log(Spielebuch.player.get().getPosition());
         });
     }
 }

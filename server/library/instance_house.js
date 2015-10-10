@@ -7,13 +7,11 @@ Instance.library.house = {
         `);
         var outsideIndex = scene.index;
 
-        scene.setDirection();
-
         var sceneInside = story.addScene();
         var insideIndex = sceneInside.index;
 
         door.setEvent('Go in', `
-            story.next('${insideIndex}');
+            story.next(${insideIndex});
         `, 'fa-long-arrow-right');
 
             var insideDoor = sceneInside.addText(`
@@ -21,7 +19,7 @@ Instance.library.house = {
         `);
 
             insideDoor.setEvent('Go out', `
-            story.next('${outsideIndex}');
+            story.next(${outsideIndex});
         `, 'fa-long-arrow-right');
 
         return scene;

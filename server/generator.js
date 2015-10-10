@@ -43,8 +43,6 @@ generateScene = function(storyId,userId){
         scene = new DynamicScene(position,userId,chance);
     }
 
-    console.log(scene);
-
     /**
      * Add text with directions to go...
      */

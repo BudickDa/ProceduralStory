@@ -1,12 +1,9 @@
-Text = new ReactiveVar([]);
-
-Template.registerHelper('text', function () {
-    var textArray = Text.get();
-    var readerText = Reader.parseGameObjectText(textArray);
-    return parse(readerText);
-});
-
-
+/**
+ * Templates for the replacement of tags.
+ * @param tagname
+ * @param text
+ * @returns {*}
+ */
 function goTemplate(tagname, text) {
     var method = false;
     if (tagname === 'goback') {
@@ -36,7 +33,11 @@ function goTemplate(tagname, text) {
     }
 }
 
-
+/**
+ * Tags that will be parsed and replaced by hyperlinks
+ * @param name
+ * @param template
+ */
 var tagObject = function (name, template) {
     this.name = name.toLowerCase();
     this.template = template;
@@ -49,23 +50,14 @@ var tags = [
     new tagObject('goWest', goTemplate),
 ];
 
-function parse(input) {
+parseCustomTags = function(input) {
     var tmpElement = document.createElement('html');
     tmpElement.innerHTML = `${input}`;
     _.forEach(tags, (tag)=> {
-        _.forEach(tmpElement.getElementsByTagName(tag.name), (element)=> {
+        var elements = tmpElement.getElementsByTagName(tag.name);
+        _.forEach(elements, (element)=> {
             element.outerHTML = tag.template(tag.name, element.innerHTML);
         });
     });
-
-    return tmpElement.innerHTML;
-}
-
-
-Template.body.events({
-    'click .restart-story': function (event) {
-        event.preventDefault();
-        Session.set('spielebuchReady', false);
-        Meteor.call('startStory', initBook);
-    }
-});
+    return tmpElement.querySelector('body').innerHTML;
+};
