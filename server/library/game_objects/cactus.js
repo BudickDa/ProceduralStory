@@ -1,8 +1,8 @@
-cactus = {
+Gameobjects.cactus = {
     description: [
-        'There stands a [cactus](cactus).',
-        'There stands a [cactus](cactus) and there stands one, and there another. You suddenly realise that you hate cacti.',
-        'Nothing here except a lot of [cacti](cactus).'
+        ['There stands a [cactus](cactus).','You now know the count of all the cacti in the dessert. It is one less than before.'],
+        ['There stands a [cactus](cactus) and there stands one, and there another. You suddenly realise that you hate cacti.','Your hatred was strong and the cactus is gone.'],
+        ['Nothing here except a lot of [cacti](cactus).','You wonder if there is a cacti heaven...']
     ],
     effects: [
         new Spielebuch.Effect('prickly', [Rules.humanFistDamage]) //be careful, cacti fight back!

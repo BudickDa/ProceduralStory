@@ -1,5 +1,5 @@
 Instance.library.feast = {
-    count: 50,
+    count: 20,
     build: function (story, player) {
         var scene = story.addScene();
         var table = scene.addText(`

@@ -1,6 +1,8 @@
 Text = new ReactiveVar([]);
+
 Template.registerHelper('readerText', function () {
-    if (Text.get().length === 0) {
+    var text = Text.get();
+    if (text.length === 0) {
         return `
             <style>.spinner {
                 width: 40px;
@@ -52,6 +54,10 @@ Template.registerHelper('readerText', function () {
                 <div class="double-bounce2"></div>
             </div>
         `;
-    }
-    return parseCustomTags(Reader.parseGameObjectText(Text.get()));
+    };
+
+    text = Reader.parseGameObjectText(text);
+    return parseCustomTags(text);
 });
+
+

@@ -14,7 +14,7 @@ Meteor.methods({
             return generateScene(storyId, this.userId);
         }
     },
-    onLeaveScene: function(sceneId){
+    cleanScene: function(sceneId){
         /**
          * If the user leaves a scene, we have to delete all the objects in this scene.
          */
@@ -22,8 +22,7 @@ Meteor.methods({
             throw new Meteor.Error('403', 'User is not logged in.');
         } else {
             Spielebuch.GameObjects.remove({
-                referenceId: sceneId,
-                userId: this.userId
+                userId: 'procedural'
             })
         }
     }

@@ -48,6 +48,10 @@ Accounts.onLogin(function () {
  */
 Meteor.startup(function () {
     if (Meteor.user()) {
-        initBook();
+        if (Meteor.user().storyId === '') {
+            Meteor.call('startStory', initBook);
+        } else {
+            initBook();
+        }
     }
 });
