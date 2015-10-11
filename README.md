@@ -1,6 +1,9 @@
 # Procedurally generated story
 A procedurally generated story created with spielebuch:core, spielebuch:ui, twbs:bootstrap, thepumpinglemma:chance and fortawesome:fontawesome.
 
+# Important:
+Does only work in chrome.
+
 # How to use it
 - Clone it and start the application local or go directly to [darkforrest.meteor.com](http://darkforrest.meteor.com/).
 - Create an account
@@ -38,10 +41,13 @@ Interaction with GameObjects works via events. A event is a function that is sto
 GameObjects can be generated procedurally. Every biome has rules, which GameObject it can contain. There are some predefined GameObjects (sheep and cactus) that are generated into the map.
 A director has an eye on every object (via observer). If one GameObject is created or destroyed in one scene, the director takes care, that it stays destroyed or is not created twice.
 
+## Video
+[!Video auf Youtube](http://img.youtube.com/vi/w99yP59uV-U/0.jpg)](http://www.youtube.com/watch?v=w99yP59uV-U)
+
 ## Time needed:
-15.45 h
-(09.00 am - 0.45 am)
-and the video is missing...
+19 h
+(09.00 am - 04.00 am)
+
 
 
 # Used packages:
