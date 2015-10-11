@@ -42,7 +42,7 @@ GameObjects can be generated procedurally. Every biome has rules, which GameObje
 A director has an eye on every object (via observer). If one GameObject is created or destroyed in one scene, the director takes care, that it stays destroyed or is not created twice.
 
 ## Video
-![Video auf Youtube](http://img.youtube.com/vi/w99yP59uV-U/0.jpg)](http://www.youtube.com/watch?v=w99yP59uV-U)
+[![Video auf Youtube](http://img.youtube.com/vi/w99yP59uV-U/0.jpg)](http://www.youtube.com/watch?v=w99yP59uV-U)
 
 ## Time needed:
 19 h
